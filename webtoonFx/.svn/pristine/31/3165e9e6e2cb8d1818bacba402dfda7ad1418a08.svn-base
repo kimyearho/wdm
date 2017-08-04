@@ -1,0 +1,36 @@
+package com.nodestory.controller;
+
+import javafx.fxml.FXML;
+
+public class MainController {
+
+	@FXML
+	NaverEventController naverEventController;
+
+	@FXML
+	NaverWebtoonSelectController naverWebtoonSelectController;
+
+	@FXML
+	private void initialize() {
+		System.out.println("Application Start");
+		naverEventController.init(this);
+	}
+	
+	/**
+	 * 웹툰선택 팝업에서 가져온 셀 데이터 및 편수 세팅
+	 * 
+	 * @param cellValue
+	 */
+	public void getCellValue(String cellValue) {
+		{
+			// 웹툰코드 세팅
+			naverEventController.codeField.setText(cellValue.split("-")[1]);
+
+			// 웹툰제목 세팅
+			naverEventController.titleField.setText(cellValue.split("-")[0]);
+
+			// 편수 세팅
+			naverEventController.episodeSelect(cellValue.split("-")[1]);
+		}
+	}
+}

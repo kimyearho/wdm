@@ -1,0 +1,59 @@
+package com.nodestory.controller;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import javafx.fxml.FXML;
+
+public class MainController {
+
+	@FXML
+	NaverEventController naverEventController;
+
+	@FXML
+	NaverWebtoonSelectController naverWebtoonSelectController;
+
+	@FXML
+	private void initialize() {
+		System.out.println("Application Start");
+		naverEventController.init(this);
+	}
+
+	/**
+	 * 웹툰선택 팝업에서 가져온 셀 데이터 및 편수 세팅
+	 * 
+	 * @param cellValue
+	 */
+	public void getCellValue(String cellValue) {
+		{
+			// 웹툰코드 세팅
+			naverEventController.codeField.setText(cellValue.split("-")[1]);
+
+			// 웹툰제목 세팅
+			naverEventController.titleField.setText(cellValue.split("-")[0]);
+
+			// 편수 세팅
+			naverEventController.episodeSelect(cellValue.split("-")[1]);
+		}
+	}
+
+	@FXML
+	public void showFeedback() {
+		{
+			// Optional, if not specified, WebDriver will search your path for
+			// chromedriver.
+			System.setProperty("webdriver.chrome.driver", "engine\\chromedriver.exe");
+
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("window-size=770,630");
+
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setCapability(ChromeOptions.CAPABILITY, options);
+
+			WebDriver driver = new ChromeDriver(cap);
+			driver.get("http://nodestory.com/fb.html");
+		}
+	}
+}
