@@ -48,10 +48,11 @@ public class Main extends Application {
 			}
 		}
 		
-		primaryStage.setTitle("웹툰 다운로드 매니저 FX  v" + version);
 		try {
 
 			Scene scene = new Scene(rootNode);
+			scene.getStylesheets().add(Main.class.getResource("views/bootstrap3.css").toExternalForm());
+			primaryStage.setTitle("웹툰 다운로드 매니저 FX  v" + version);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.sizeToScene();
@@ -62,8 +63,6 @@ public class Main extends Application {
 				@Override
 				public void handle(WindowEvent event) {
 					// 자바의 가상 윈도우 커맨드를 통해서, 크롬엔진 드라이버를 종료한다.
-					// 마켓 자동 로그인의 경우 크롬을 띠우게 되는데, 브라우저를 종료해도 프로세스는 살아있다.
-					// 그러므로 앱이 종료될 때 함께 종료될 수 있도록 한다. (추가: phantomjs)
 					Runtime runTime = Runtime.getRuntime();
 					try {
 						runTime.exec("taskkill /f /im phantomjs.exe");

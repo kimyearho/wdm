@@ -43,6 +43,7 @@ public class WebtoonCommentsParser {
 				String[] node = li.split("\n");
 				if (!node[0].matches(".*[(].*")) {
 					String comment = i + 1 + ". " + node[0] + node[1] + ": " + node[2].split("BEST")[1] + "\n";
+					System.out.println(comment);
 					sb.append(comment);
 				}
 			}

@@ -36,14 +36,12 @@ public class WebtoonCommentsParser {
 
 			sb = new StringBuffer();
 			sb.append("\n");
-			sb.append("=============================== [BEST 댓글] ===============================\n");
-			sb.append("\n");
 			for (int i = 0; i < liNode.size(); i++) {
 				String li = liNode.get(i).getText();
 				String[] node = li.split("\n");
 				if (!node[0].matches(".*[(].*")) {
-					String comment = i + 1 + ". " + node[0] + node[1] + ": " + node[2].split("BEST")[1] + "\n";
-					sb.append(comment);
+					String comment = "[B] " + node[0] + node[1] + ": " + node[2].split("BEST")[1] + "\n";
+					sb.append(convertInlineMsg(comment));
 				}
 			}
 		} catch (Exception e) {
@@ -52,6 +50,46 @@ public class WebtoonCommentsParser {
 			webDriver.quit();
 		}
 		return sb.toString();
+	}
+	
+	/**
+	 * <pre>
+	 *     입력한 메시지의 문자열을 일정크기마다 개행을 넣어서 문장을 완성한다.
+	 *     문자열의 길이가 기준치가 안된다면 그대로 출력한다.
+	 * </pre>
+	 * 
+	 * @param msg - 입력한 문자열
+	 * @return sb - 개행이 들어간 문자열
+	 */
+	public String convertInlineMsg(String msg) {
+
+		int len = 50;
+		int m_size = msg.length();
+
+		int count = 0;
+
+		StringBuffer sb = new StringBuffer();
+		StringBuffer sb2 = new StringBuffer();
+
+		if (m_size >= len) {
+			for (int i = 0; i < m_size; i++) {
+				// System.out.println("("+len+") (" + sb.length() + ") " + sb.toString());
+				if (sb.length() >= len) {
+					sb2.append(sb.toString() + "\n");
+					sb.setLength(0);
+					sb.append(msg.charAt(i));
+				} else {
+					sb.append(msg.charAt(i));
+				}
+			}
+			if(sb2 != null) {
+				sb2.append(sb.toString());
+			}
+		} else {
+			sb2.append(msg);
+		}
+
+		return sb2.toString();
 	}
 
 }

@@ -164,7 +164,8 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 	@FXML
 	public void commentConfirm() {
 		if (bestCommentCheck.isSelected()) {
-			AlertSupport alert = new AlertSupport("베스트 댓글을 추가 하시겠습니까?\n배댓추가시 다운로드 속도가 조금 느려지며, 배댓 개행처리가 안되므로 긴글은 짤리게됩니다. \n\n(이 기능은 현재 베타버전입니다)");
+			AlertSupport alert = new AlertSupport(
+					"베스트 댓글을 추가 하시겠습니까?\n배댓추가시 다운로드 속도가 조금 느려지며, 배댓 개행처리가 안되므로 긴글은 짤리게됩니다. \n\n(이 기능은 현재 베타버전입니다)");
 			int count = alert.alertConfirm();
 			if (count > 0) {
 				// code
@@ -269,7 +270,7 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 		}
 
 	}
-	
+
 	@FXML
 	public void showHandleDialog() {
 		try {
@@ -293,7 +294,7 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 
 				nav = new NaverWebtoonSelectService();
 				Map<String, String> excelData = webtoonList.get(i);
-				
+
 				nav.setMonday(excelData.get("monday"));
 				nav.setTuesday(excelData.get("tuesday"));
 				nav.setWednesday(excelData.get("wednesday"));
@@ -384,9 +385,15 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 
 						boolean merge_flag = false;
 
-						// UI change code
 						AlertSupport alert = new AlertSupport(root);
-						alert.showDownloadModal();
+
+						// UI change code
+						Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								alert.showDownloadModal();
+							}
+						});
 
 						if (fakeList.size() == 0) {
 							// 단일 다운로드
@@ -497,7 +504,7 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 												alert.closeDownloadModal();
 												// 시스템 종료 체크시
 												if (systemCheck.isSelected()) {
-													
+
 													// 다운로드 완료시 즉시 시스템 종료
 													String shutdownCmd = "shutdown -s";
 													Runtime.getRuntime().exec(shutdownCmd);
@@ -632,10 +639,10 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 
 								if (i == fakeList.size() - 1) {
 									alert.closeDownloadModal();
-									
+
 									// 시스템 종료 체크시
 									if (systemCheck.isSelected()) {
-										
+
 										// 다운로드 완료시 즉시 시스템 종료
 										String shutdownCmd = "shutdown -s";
 										Runtime.getRuntime().exec(shutdownCmd);
@@ -754,8 +761,7 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 			BufferedImage image = null;
 
 			/**
-			 * 캔버스 이미지의 대표 가로너비를 지정하기 위한 이미지 객체 보통 0번째가 짧은 이미지가 있을 수 있어 3번째 이미지를
-			 * 기준으로 한다.
+			 * 캔버스 이미지의 대표 가로너비를 지정하기 위한 이미지 객체 보통 0번째가 짧은 이미지가 있을 수 있어 3번째 이미지를 기준으로 한다.
 			 */
 			if (fileList.size() > 3) {
 				image = ImageIO.read(new File(downloadDir + File.separator + (String) fileList.get(1)));
@@ -787,8 +793,7 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 				} else {
 
 					/**
-					 * 1번째부터는 캔버스 위에 먼저 그려진 이전 이미지의 높이의 마지막부터 새로운 이미지를 그려야하므로,
-					 * 이전 이미지의 높이를 구한다.
+					 * 1번째부터는 캔버스 위에 먼저 그려진 이전 이미지의 높이의 마지막부터 새로운 이미지를 그려야하므로, 이전 이미지의 높이를 구한다.
 					 */
 					int height = ImageIO.read(new File(downloadDir + File.separator + (String) fileList.get(i - 1)))
 							.getHeight();
@@ -800,13 +805,13 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 					graphics.drawImage(bufferImage, 0, max, null);
 				}
 			} // end for
-			
+
 			String saveImg = ep + "화 - " + title.trim() + ".png";
 			wdmLog(log, "└> [이미지 병합] -> 파일을 생성하고 있습니다.");
 
 			/**
-			 * 저장할때 png로 생성하는 이유는 jpeg경우 픽셀의 최대가 65500인데, 웹툰의 이미지가 이를 초과하는 경우가
-			 * 있다. 초과시에 png로 저장하지말고, 그냥 처음부터 png로 저장하자.
+			 * 저장할때 png로 생성하는 이유는 jpeg경우 픽셀의 최대가 65500인데, 웹툰의 이미지가 이를 초과하는 경우가 있다. 초과시에 png로
+			 * 저장하지말고, 그냥 처음부터 png로 저장하자.
 			 */
 			ImageIO.write(canvasImage, "PNG", new File(downloadDir + File.separator + saveImg));
 

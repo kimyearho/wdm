@@ -22,6 +22,7 @@ public class TextImageConvert {
 		// 파싱할 웹툰 페이지에 베댓을 가져온다. 웹툰코드와 해당편수코드를 전달한다.
 		WebtoonCommentsParser parser = new WebtoonCommentsParser();
 		String sb = parser.webtoonComments(webCode, s_ep);
+		System.out.println(sb.toString().length());
 
 		BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2d = img.createGraphics();
@@ -30,7 +31,7 @@ public class TextImageConvert {
 		g2d.setFont(font);
 
 		FontMetrics fm = g2d.getFontMetrics();
-		int width = 690, height = 380;
+		int width = 690, height = 650;
 		g2d.dispose();
 
 		img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
