@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nodestory.controller.MainController">
+	<children>
+		<MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="759.0">
+			<menus>
+				<Menu mnemonicParsing="false" text="공지사항 (N)">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#showNoticeDialog" text="공지사항 보기" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="네이버 웹툰 (W)">
+					<items>
+                  <MenuItem mnemonicParsing="false" onAction="#showManualCode" text="코드 직접 등록" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		<TabPane layoutX="-1.0" layoutY="27.0" prefHeight="355.0" prefWidth="759.0" tabClosingPolicy="UNAVAILABLE">
+			<tabs>
+				<Tab text="네이버 웹툰">
+					<content>
+						<fx:include fx:id="naverEvent" source="NaverEvent.fxml" />
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+      <StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="378.0" prefWidth="759.0" style="-fx-background-color: rgba(64, 64, 64, 0.85);" visible="false">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane layoutX="109.0" layoutY="62.0" prefHeight="156.0" prefWidth="541.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <Button fx:id="btnCancel" disable="true" focusTraversable="false" layoutX="210.0" layoutY="115.0" mnemonicParsing="false" onAction="#closeModal" prefHeight="23.0" prefWidth="120.0" text="닫기" />
+                        <Label layoutX="159.0" layoutY="71.0" text="다운로드중 입니다. 잠시만 기다려주세요." />
+                        <Label layoutX="159.0" layoutY="88.0" text="다운로드가 완료되면 버튼이 활성화 됩니다." />
+                        <ProgressIndicator fx:id="bar" layoutX="246.0" layoutY="20.0" prefHeight="35.0" prefWidth="47.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+	</children>
+</AnchorPane>
