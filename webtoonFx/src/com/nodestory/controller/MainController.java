@@ -1,7 +1,6 @@
 package com.nodestory.controller;
 
 import com.nodestory.Main;
-import com.nodestory.utils.AlertSupport;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -20,6 +20,9 @@ public class MainController {
 
 	@FXML
 	NaverWebtoonSelectController naverWebtoonSelectController;
+	
+	@FXML
+	ManualController manualController;
 
 	@FXML
 	public StackPane stackpane;
@@ -53,6 +56,25 @@ public class MainController {
 		}
 	}
 	
+	/**
+	 *  웹툰선택 팝업에서 가져온 데이터
+	 * 
+	 * @param title
+	 * @param code
+	 */
+	public void getCellValue(String title, String code) {
+		{
+			// 웹툰코드 세팅
+			naverEventController.codeField.setText(code);
+			
+			// 웹툰제목 세팅
+			naverEventController.titleField.setText(title);
+
+			// 편수 세팅
+			naverEventController.episodeSelect(code);
+		}
+	}
+	
 	// 모달 닫기
 	public void closeModal() {
 		stackpane.setVisible(false);
@@ -66,7 +88,6 @@ public class MainController {
 		
 		try {
 
-			// 다이얼로그 FXML 로드
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/Notice.fxml"));
 			StackPane page = (StackPane) loader.load();
 
@@ -76,8 +97,7 @@ public class MainController {
 			dialog.initModality(Modality.WINDOW_MODAL);
 			dialog.setResizable(false);
 			dialog.setScene(scene);
-
-			// 다이얼로그를 보여준다.
+			dialog.setAlwaysOnTop(true);
 			dialog.show();
 
 		} catch (Exception e) {
@@ -87,10 +107,30 @@ public class MainController {
 	}
 	
 	@FXML
-	public void showFeedback() {
+	public void showManualCode() {
 		{
-			AlertSupport alert = new AlertSupport("준비 중 입니다.");
-			alert.alertInfoMsg();
+			try {
+
+				FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/ManualCode.fxml"));
+				AnchorPane page = (AnchorPane) loader.load();
+
+				Stage dialog = new Stage();
+				Scene scene = new Scene(page);
+				dialog.setTitle("웹툰코드 직접등록");
+				dialog.initModality(Modality.WINDOW_MODAL);
+				dialog.setResizable(false);
+				dialog.setAlwaysOnTop(true);
+				dialog.setScene(scene);
+
+				dialog.show();
+				
+				ManualController manualController = loader.getController();
+				manualController.setMainController(this);
+				manualController.setDialogStageStage(dialog);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

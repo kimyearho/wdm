@@ -20,6 +20,7 @@ public class ApplicationAPI {
 		StringBuilder responseBody = new StringBuilder();
 		Map<String, String> resultMap = null;
 		try {
+			// url = new URL("Your Server Checks");
 			url = new URL("http://nodestory.com/api/v0.1/appVersionCheck");
 			connection = url.openConnection();
 			connection.addRequestProperty("Content-Type", "application/json");
@@ -42,8 +43,9 @@ public class ApplicationAPI {
 			br.close();
 
 			ObjectMapper om = new ObjectMapper();
-			resultMap = om.readValue(responseBody.toString(), new TypeReference<Map<String, Object>>() {});
-			
+			resultMap = om.readValue(responseBody.toString(), new TypeReference<Map<String, Object>>() {
+			});
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

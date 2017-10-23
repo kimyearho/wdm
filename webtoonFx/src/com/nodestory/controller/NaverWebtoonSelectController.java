@@ -145,15 +145,10 @@ public class NaverWebtoonSelectController {
 	}
 
 	public void closeDialogData() {
-		
 		if(!cellValue.getText().equals("")) {
-			
-			// 다이얼로그 종료
 			dialogStage.close();
 			
-			// 메인 컨트롤러로 선택한 컬럼의 값을 전달한다.
 			root.getCellValue(cellValue.getText());
-			
 		} else {
 			AlertSupport alert = new AlertSupport("웹툰을 선택하세요.");
 			alert.alertInfoMsg();

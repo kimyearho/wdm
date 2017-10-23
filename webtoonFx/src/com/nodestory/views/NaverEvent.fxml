@@ -5,23 +5,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="763.0" stylesheets="@bootstrap3.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nodestory.controller.NaverEventController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nodestory.controller.NaverEventController">
 	<children>
-		<Pane layoutY="2.0" prefHeight="396.0" prefWidth="757.0" style="-fx-background-color: #ececec;">
+		<Pane layoutY="2.0" prefHeight="317.0" prefWidth="757.0" style="-fx-background-color: #ececec;">
 			<children>
-				<TextArea fx:id="log" editable="false" focusTraversable="false" layoutX="5.0" layoutY="308.0" prefHeight="96.0" prefWidth="750.0" promptText="--- 로그 ---" />
-				<Pane focusTraversable="true" layoutX="5.0" layoutY="39.0" prefHeight="256.0" prefWidth="750.0" style="-fx-border-color: #ccc;">
+				<Pane focusTraversable="true" layoutX="5.0" layoutY="39.0" prefHeight="271.0" prefWidth="750.0" style="-fx-border-color: #ccc;">
 					<children>
 						<Label layoutX="28.0" layoutY="30.0" text="웹툰코드" />
 						<TextField fx:id="codeField" editable="false" layoutX="89.0" layoutY="26.0" promptText="자동 입력." styleClass="text-field" />
 						<Button layoutX="244.0" layoutY="26.0" mnemonicParsing="false" onAction="#showHandleDialog" styleClass="primary" text="웹툰선택" />
-						<Button layoutX="323.0" layoutY="26.0" mnemonicParsing="false" onAction="#resetdBtn" prefHeight="23.0" prefWidth="60.0" style="margin-left: 10px;" text="리셋" />
+						<Button layoutX="321.0" layoutY="26.0" mnemonicParsing="false" onAction="#resetdBtn" prefHeight="23.0" prefWidth="60.0" style="margin-left: 10px;" text="리셋" />
 						<Button fx:id="jobListAddBtn" disable="true" layoutX="245.0" layoutY="65.0" mnemonicParsing="false" onAction="#addJobList" prefHeight="16.0" prefWidth="136.0" styleClass="success" text="예약리스트 추가" />
 						<CheckBox fx:id="systemCheck" layoutX="89.0" layoutY="156.0" mnemonicParsing="false" onAction="#systemShutDown" text="시스템 종료" />
 						<CheckBox fx:id="folderCheck" layoutX="239.0" layoutY="156.0" mnemonicParsing="false" text="폴더 구분안함" />

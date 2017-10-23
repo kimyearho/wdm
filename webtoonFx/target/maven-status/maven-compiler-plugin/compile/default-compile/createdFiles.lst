@@ -1,4 +1,5 @@
 com\nodestory\commons\Constants.class
+com\nodestory\controller\NaverEventController$4$1.class
 com\nodestory\utils\ApplicationAPI$1.class
 com\nodestory\utils\WebtoonCommentsParser.class
 com\nodestory\utils\ExcelReader.class

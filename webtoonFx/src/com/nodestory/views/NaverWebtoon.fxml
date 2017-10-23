@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="459.0" prefWidth="823.0" stylesheets="@bootstrap3.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nodestory.controller.NaverWebtoonSelectController">
+<AnchorPane prefHeight="459.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nodestory.controller.NaverWebtoonSelectController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="518.0">
          <children>
@@ -17,7 +17,7 @@
             <TextField fx:id="cellValue" editable="false" focusTraversable="false" layoutX="95.0" layoutY="76.0" prefHeight="23.0" prefWidth="192.0" />
             <Button fx:id="checkButton" layoutX="299.0" layoutY="76.0" mnemonicParsing="false" onAction="#closeDialogData" prefHeight="23.0" prefWidth="110.0" text="선택하기" />
             <Label layoutX="31.0" layoutY="79.0" text="제목 체크" />
-            <Label layoutX="299.0" layoutY="51.0" text="※ 검색어 입력 후 엔터키를 눌러주세요.">
+            <Label layoutX="299.0" layoutY="51.0" text="■ 검색어 입력 후 엔터키를 눌러주세요.">
                <font>
                   <Font size="11.0" />
                </font>

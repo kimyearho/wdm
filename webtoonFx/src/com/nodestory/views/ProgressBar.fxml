@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="759.0" style="-fx-background-color: rgba(64, 64, 64, 0.85);" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="stackpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="301.0" prefWidth="759.0" style="-fx-background-color: rgba(64, 64, 64, 0.85);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Pane layoutX="109.0" layoutY="62.0" prefHeight="156.0" prefWidth="541.0" style="-fx-background-color: #fff;">
+            <Pane layoutX="109.0" layoutY="75.0" prefHeight="156.0" prefWidth="541.0" style="-fx-background-color: #fff;">
                <children>
                   <Button fx:id="btnCancel" disable="true" focusTraversable="false" layoutX="210.0" layoutY="115.0" mnemonicParsing="false" onAction="#closeModal" prefHeight="23.0" prefWidth="120.0" text="닫기" />
                   <Label layoutX="159.0" layoutY="71.0" text="다운로드중 입니다. 잠시만 기다려주세요." />

@@ -21,7 +21,7 @@ public class Main extends Application {
 	private FXMLLoader fxmlLoader;
 	
 	/* API KEY */
-	private static final String apiKey = "xdagfxiuk23k#dasd^arkiqewl!#djtuiope23dka";
+	private static final String apiKey = "xdadbfxiudkikk2#a23sd^arkiqewl!#d^*$dklk238";
 
 	public void init() throws IOException {
 		fxmlLoader = new FXMLLoader(getClass().getResource("views/Main.fxml"));
@@ -30,7 +30,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		
+					
 		/* 앱 버전 체크 */
 		ApplicationAPI api = new ApplicationAPI();
 		Map<String, String> value = api.appCheck(apiKey);
@@ -51,13 +51,13 @@ public class Main extends Application {
 		try {
 
 			Scene scene = new Scene(rootNode);
-			scene.getStylesheets().add(Main.class.getResource("views/bootstrap3.css").toExternalForm());
 			primaryStage.setTitle("웹툰 다운로드 매니저 FX  v" + version);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.sizeToScene();
 			primaryStage.show();
 			
+		
 			// Stage 종료 이벤트
 			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				@Override
