@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="451.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="451.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="399.0" prefWidth="452.0">
          <children>
@@ -21,7 +21,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="226.0" layoutY="38.0" text="v0.2">
+            <Label layoutX="226.0" layoutY="38.0" text="v0.3">
                <font>
                   <Font size="18.0" />
                </font>
@@ -33,7 +33,7 @@
             <Label layoutX="14.0" layoutY="172.0" text="3. MIT License" />
             <Separator layoutY="198.0" prefHeight="3.0" prefWidth="451.0" />
             <Label layoutX="15.0" layoutY="208.0" text="＃WDM FX 이란?" />
-            <TextArea editable="false" focusTraversable="false" layoutX="15.0" layoutY="231.0" prefHeight="77.0" prefWidth="419.0" text="WDM FX는 기존 WDM보다 사용자 편의성을 개선하고 한층 더 강화 된 새로운 웹툰 다운로더 입니다. 사용자 피드백을 통해서 꾸준히 업데이트를 해왔으며, 새로운 버전으로 계속해서 업데이트해 나갈 예정이오니 참고 바랍니다." wrapText="true" />
+            <TextArea editable="false" focusTraversable="false" layoutX="15.0" layoutY="231.0" prefHeight="96.0" prefWidth="419.0" text="WDM FX는 기존 WDM보다 사용자 편의성을 개선한 새로운 네이버 웹툰 다운로더 입니다. 사용자 피드백을 통해서 꾸준히 업데이트를 해왔으며, 새로운 버전으로 계속해서 업데이트해 나갈 것입니다.오픈소스로 공개중이므로, 누구나 다운로드할 수 있으며, 자유롭게 수정, 배포 할 수 있지만 저작권은 명시해야합니다.피드백은 이메일로 받지 않으므로, 홈페이지 댓글이나, 깃 이슈에 제기 해주시길 바랍니다." wrapText="true" />
          </children>
       </AnchorPane>
    </children>

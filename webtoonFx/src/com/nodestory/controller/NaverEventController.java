@@ -39,6 +39,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -277,6 +278,7 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 			Stage dialog = new Stage();
 			Scene scene = new Scene(page);
 			dialog.setTitle("웹툰을 선택하세요.");
+			dialog.getIcons().add(new Image("file:wdm.png"));
 			dialog.initModality(Modality.WINDOW_MODAL);
 			dialog.setResizable(false);
 			dialog.setScene(scene);

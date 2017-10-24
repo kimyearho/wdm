@@ -12,6 +12,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -52,6 +53,7 @@ public class Main extends Application {
 
 			Scene scene = new Scene(rootNode);
 			primaryStage.setTitle("웹툰 다운로드 매니저 FX  v" + version);
+			primaryStage.getIcons().add(new Image("file:wdm.png"));
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.sizeToScene();

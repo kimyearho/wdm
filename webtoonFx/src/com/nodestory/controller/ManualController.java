@@ -4,7 +4,9 @@ import org.jsoup.Connection;
 import org.jsoup.nodes.Document;
 
 import com.nodestory.commons.CommonService;
+import com.nodestory.utils.AlertSupport;
 
+import javafx.application.Platform;
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -61,39 +63,49 @@ public class ManualController {
 		
 		String codeText = codeInputField.getText();
 		
-		CommonService cs = new CommonService();
-		
-		Connection conn = cs.getConnection(codeText);
-		conn.timeout(5000);
-		
-		Document doc = null;
-		
-		wDesc.setWrapText(true);
-		
-		try {
+		if(!"".equals(codeText)) {
+			CommonService cs = new CommonService();
 			
-			doc = conn.get();
+			Connection conn = cs.getConnection(codeText);
+			conn.timeout(5000);
 			
-			String title = doc.select("title").text().split("::")[0];
-			setTitle(title);
+			Document doc = null;
 			
-			String author = doc.select("div.detail h2 > span").text();
-			wTitle.setText(title + "(" + author + ")");
+			wDesc.setWrapText(true);
 			
-			String desc = doc.select("div.detail p").text();
-			wDesc.setText(desc);
-			
-			String img = doc.select("div.thumb > a img").attr("src");
-			thumbnail.setImage(new Image(img, true));
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+			try {
+				
+				doc = conn.get();
+				
+				String title = doc.select("title").text().split("::")[0];
+				setTitle(title);
+				
+				String author = doc.select("div.detail h2 > span").text();
+				wTitle.setText(title + "(" + author + ")");
+				
+				String desc = doc.select("div.detail p").text();
+				wDesc.setText(desc);
+				
+				String img = doc.select("div.thumb > a img").attr("src");
+				thumbnail.setImage(new Image(img, true));
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					AlertSupport alert = new AlertSupport("웹툰코드를 입력하세요.");
+					alert.alertInfoMsg(stage);
+				}
+			});
 		}
-		
 	}
 	
 	/**
 	 * 네이버 웹툰으로 이동
+	 * 이슈1: fxml 경로 이슈가 있어 코드로 디자인구성 
 	 */
 	public void getWebtoonSite() {
 		
@@ -144,8 +156,15 @@ public class ManualController {
 	public void getWebtoonClose() {
 		if(!codeInputField.getText().equals("") ) {
 			stage.close();
-			
 			root.getCellValue(this.title, codeInputField.getText());
+		} else {
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					AlertSupport alert = new AlertSupport("웹툰코드를 입력하세요.");
+					alert.alertInfoMsg(stage);
+				}
+			});
 		}
 	}
 
