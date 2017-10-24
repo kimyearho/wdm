@@ -4,6 +4,10 @@
 
 ![Imgur](http://i.imgur.com/FfWT6x6.png)
 
+![Imgur](https://i.imgur.com/BATWkZE.png)
+
+![Imgur](https://i.imgur.com/bx8uLq8.png)
+
 ## v0.3:
 
 신규기능
@@ -30,9 +34,13 @@
 
 ## 기능정의:
 
-![Imgur](https://i.imgur.com/BATWkZE.png)
-
-![Imgur](https://i.imgur.com/bx8uLq8.png)
+* 웹툰 선택
+* 기본 다운로드
+* 웹툰 직접조회
+* 예약 리스트 사용
+* 시스템 종료
+* 폴더 구분안함
+* 베스트 댓글 추가
 
 ## Fix:
 
