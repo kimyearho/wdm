@@ -30,7 +30,7 @@
 <br/>
 
 ## 다운로드
-[다운로드 페이지](https://github.com/kimyearho/WebtoonDownloadManager/releases/tag/0.2)
+[다운로드 페이지](https://github.com/kimyearho/WebtoonDownloadManager/releases/tag/0.3)
 
 <br/>
 
