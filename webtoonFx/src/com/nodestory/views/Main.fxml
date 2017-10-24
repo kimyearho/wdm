@@ -21,7 +21,7 @@
 						<MenuItem mnemonicParsing="false" onAction="#showNoticeDialog" text="공지사항 보기" />
 					</items>
 				</Menu>
-				<Menu mnemonicParsing="false" text="네이버 웹툰 (W)">
+				<Menu mnemonicParsing="false" text="부가 기능 (W)">
 					<items>
                   <MenuItem mnemonicParsing="false" onAction="#showManualCode" text="코드 직접 등록" />
 					</items>

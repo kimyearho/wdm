@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
 
 /*
  * Alert 다이얼로그를 사용하기 위한 클래스 
@@ -35,6 +36,18 @@ public class AlertSupport {
 		alert.showAndWait();
 
 	}
+	
+	// info 타입 Alert 다이얼로그
+	public void alertInfoMsg(Stage stage) {
+
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("알림");
+		alert.setHeaderText(null);
+		alert.setContentText(this.msg);
+		alert.initOwner(stage);
+		alert.showAndWait();
+
+		}
 
 	// error 타입 Alert 다이얼로그
 	public void alertErrorMsg() {

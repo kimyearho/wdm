@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
@@ -93,6 +94,7 @@ public class MainController {
 
 			Stage dialog = new Stage();
 			Scene scene = new Scene(page);
+			dialog.getIcons().add(new Image("file:wdm.png"));
 			dialog.setTitle("공지사항");
 			dialog.initModality(Modality.WINDOW_MODAL);
 			dialog.setResizable(false);
@@ -116,6 +118,7 @@ public class MainController {
 
 				Stage dialog = new Stage();
 				Scene scene = new Scene(page);
+				dialog.getIcons().add(new Image("file:wdm.png"));
 				dialog.setTitle("웹툰코드 직접등록");
 				dialog.initModality(Modality.WINDOW_MODAL);
 				dialog.setResizable(false);
