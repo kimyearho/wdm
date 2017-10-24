@@ -30,11 +30,9 @@
 
 ## 기능정의:
 
- * 웹툰선택 및 직접등록 기능 추가 (db/webtoonList1.xlsx 참조)
- * 시스템종료 옵션 추가
- * 웹툰 폴더별 or 폴더구분없이 다운로드 옵션 추가
- * 예약리스트 옵션 추가
- * 베스트 댓글 옵션 추가
+![Imgur](https://i.imgur.com/BATWkZE.png)
+
+![Imgur](https://i.imgur.com/bx8uLq8.png)
 
 ## Fix:
 
