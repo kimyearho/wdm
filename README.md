@@ -4,10 +4,6 @@
 
 ![Imgur](http://i.imgur.com/FfWT6x6.png)
 
-![Imgur](https://i.imgur.com/BATWkZE.png)
-
-![Imgur](https://i.imgur.com/bx8uLq8.png)
-
 ## v0.3:
 
 신규기능
