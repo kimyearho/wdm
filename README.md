@@ -45,6 +45,10 @@
 
 <br/>
 
+## Sweet!
+
+ * 프로그램이 마음에 드셨다면 상단의 별 (Star) 모양을 눌러주세요!
+
 ## 다운로드
 [다운로드 페이지](https://github.com/kimyearho/WebtoonDownloadManager/releases/tag/0.3)
 
