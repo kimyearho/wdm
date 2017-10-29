@@ -36,7 +36,7 @@ public class AlertSupport {
 		alert.showAndWait();
 
 	}
-	
+
 	// info 타입 Alert 다이얼로그
 	public void alertInfoMsg(Stage stage) {
 
@@ -47,12 +47,24 @@ public class AlertSupport {
 		alert.initOwner(stage);
 		alert.showAndWait();
 
-		}
+	}
 
 	// error 타입 Alert 다이얼로그
 	public void alertErrorMsg() {
 
 		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Warning Dialog");
+		alert.setHeaderText(null);
+		alert.setContentText(this.msg);
+		alert.showAndWait();
+
+	}
+
+	// error 타입 Alert 다이얼로그
+	public void alertErrorMsg(Stage stage) {
+
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.initOwner(stage);
 		alert.setTitle("Warning Dialog");
 		alert.setHeaderText(null);
 		alert.setContentText(this.msg);
@@ -84,6 +96,23 @@ public class AlertSupport {
 	public int alertConfirm() {
 		int r = 0;
 		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("확인 알림");
+		alert.setHeaderText(null);
+		alert.setContentText(this.msg);
+
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.get() == ButtonType.OK) {
+			r = 1;
+		}
+
+		return r;
+	}
+
+	// 컨펌 다이얼로그
+	public int alertConfirm(Stage stage) {
+		int r = 0;
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.initOwner(stage);
 		alert.setTitle("확인 알림");
 		alert.setHeaderText(null);
 		alert.setContentText(this.msg);

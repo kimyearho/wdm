@@ -400,6 +400,8 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 							String title = titleField.getText();
 							
 							CommonService cs = new CommonService();
+							System.out.println(start);
+							System.out.println(end);
 
 							for (int i = start; i <= end; i++) {
 
@@ -448,6 +450,9 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 												hrefList.add(s_fileName);
 											}
 										}
+										
+										System.out.println(hrefList);
+										
 										merge_flag = cs.webtoonMergeStart(hrefList, dirPath, title, s_fileName, i, log);
 										if (!merge_flag) {
 											break;
