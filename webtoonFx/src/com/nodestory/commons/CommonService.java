@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -32,7 +35,7 @@ public class CommonService {
 	public Connection getConnection(String webCode, int i) {
 		return Jsoup.connect("http://comic.naver.com/webtoon/detail.nhn?titleId=" + webCode + "&no=" + i);
 	}
-	
+
 	/**
 	 * 네이버 웹툰 연결
 	 * 
@@ -77,16 +80,27 @@ public class CommonService {
 	 * @param title
 	 *            - 웹툰의 제목
 	 */
-	public boolean webtoonMergeStart(List<String> imgList, 
-			String downloadDir, String title, String s_fileName, int ep, TextArea log) {
+	public boolean webtoonMergeStart(List<String> imgList, String downloadDir, String title, String s_fileName,
+			int ep) {
+
 		boolean flag = false;
+
 		List<String> fileList = new ArrayList<String>();
 
+		BufferedImage bufferFiles, image, canvasImage, bufferImage;
+		
+		Graphics2D graphics = null;
+
 		try {
+
+			// 최대높이
 			int maxheight = 0;
+
+			// 파일명
 			String fileName = "";
 
 			for (int i = 0; i < imgList.size(); i++) {
+
 				if (!imgList.get(i).matches(".*_s.*")) {
 					fileName = ((String) imgList.get(i)).toString()
 							.substring(((String) imgList.get(i)).toString().lastIndexOf('/') + 1);
@@ -94,24 +108,25 @@ public class CommonService {
 					fileName = s_fileName;
 				}
 
-				BufferedImage bufferFiles = ImageIO.read(new File(downloadDir + File.separator + fileName));
+				bufferFiles = ImageIO.read(new File(downloadDir + File.separator + fileName));
 				int height = bufferFiles.getHeight();
 
 				maxheight += height;
 				fileList.add(fileName);
 			}
-			BufferedImage image = null;
+			
 			if (fileList.size() > 3) {
 				image = ImageIO.read(new File(downloadDir + File.separator + (String) fileList.get(1)));
 			} else {
 				image = ImageIO.read(new File(downloadDir + File.separator + (String) fileList.get(0)));
 			}
-			BufferedImage canvasImage = new BufferedImage(image.getWidth(), maxheight, 1);
+			
+			canvasImage = new BufferedImage(image.getWidth(), maxheight, 1);
+			
 			int max = 0;
 			for (int i = 0; i < fileList.size(); i++) {
-				BufferedImage bufferImage = ImageIO
-						.read(new File(downloadDir + File.separator + (String) fileList.get(i)));
-				Graphics2D graphics = (Graphics2D) canvasImage.getGraphics();
+				bufferImage = ImageIO.read(new File(downloadDir + File.separator + (String) fileList.get(i)));
+				graphics = (Graphics2D) canvasImage.getGraphics();
 				graphics.setBackground(Color.WHITE);
 				if (i == 0) {
 					graphics.drawImage(bufferImage, 0, 0, null);
@@ -122,17 +137,26 @@ public class CommonService {
 					graphics.drawImage(bufferImage, 0, max, null);
 				}
 			} // end for
+
+			// 병합 이미지 생성 후 원본폴더에 저장한다.
 			String saveImg = ep + "화 - " + title.trim() + ".png";
 			ImageIO.write(canvasImage, "PNG", new File(downloadDir + File.separator + saveImg));
 
+			/*
+			 * <pre>
+			 *     v0.3.5 이슈해결: 원본폴더내 조각파일들은 모두 삭제하는데, 
+			 *     이때 최종 파일의 확장자(PNG) 를 제외하고 삭제하도록 한다.
+			 * </pre>
+			 */
 			File[] originalFiles = new File(downloadDir).listFiles();
 			for (int i = 0; i < originalFiles.length; i++) {
-				if ((!originalFiles[i].toString().equals(downloadDir + File.separator + saveImg))
-						&& (!originalFiles[i].getName().matches(".*" + title.trim() + ".*"))
-						|| originalFiles[i].toString().equals(downloadDir + File.separator + s_fileName)) {
+				int pos = originalFiles[i].toString().lastIndexOf(".");
+				String extension = originalFiles[i].toString().substring(pos + 1);
+				if (!extension.equals("png")) {
 					originalFiles[i].delete();
 				}
 			}
+
 			flag = true;
 		} catch (Exception e) {
 			flag = false;

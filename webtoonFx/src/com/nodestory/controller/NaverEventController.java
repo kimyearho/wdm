@@ -451,9 +451,7 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 											}
 										}
 										
-										System.out.println(hrefList);
-										
-										merge_flag = cs.webtoonMergeStart(hrefList, dirPath, title, s_fileName, i, log);
+										merge_flag = cs.webtoonMergeStart(hrefList, dirPath, title, s_fileName, i);
 										if (!merge_flag) {
 											break;
 										} else {
@@ -541,7 +539,7 @@ public class NaverEventController extends ListCell<T> implements Initializable {
 													hrefList.add(s_fileName);
 												}
 											}
-											merge_flag = cs.webtoonMergeStart(hrefList, dirPath, title, s_fileName, k, log);
+											merge_flag = cs.webtoonMergeStart(hrefList, dirPath, title, s_fileName, k);
 											if (!merge_flag) {
 												break;
 											} 
