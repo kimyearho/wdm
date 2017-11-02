@@ -22,7 +22,7 @@ public class Main extends Application {
 	private FXMLLoader fxmlLoader;
 	
 	/* API KEY */
-	private static final String apiKey = "xdadbfxiudkikk2#a23sd^arkiqewl!#d^*$dklk238";
+	private static final String apiKey = "xdadbfxiudkikk2#a23sd^askldjkldaj12312!@#%^12##$qeksmsk1";
 
 	public void init() throws IOException {
 		fxmlLoader = new FXMLLoader(getClass().getResource("views/Main.fxml"));
