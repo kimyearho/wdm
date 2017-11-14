@@ -15,17 +15,17 @@
 
 <br/>
 
-## v0.5 버전 릴리즈 예정
-  * 11월 이내에 v0.5 버전을 릴리즈 예정하고 있습니다.
-  
-  * v0.5 버전에서는 자동 업데이트 모듈을 별도로 추가 혹은 탑재예정 
-    - 매번 번거롭게 새 버전 릴리즈마다 다운로드 받지 않으셔도 됩니다.
-  
-  * 구 wdm기능이였던 브라우저 뷰어기능이 개선되어 추가 됩니다.
+## v0.4 버전 릴리즈 예정
+```javascript
+> 0.4 버전 업데이트를 곧 릴리즈 예정 입니다.
+> 0.4 버전에서는 wdmFx도 자동 업데이트 모듈이 추가 되며, 새로운 버전이 나와도 강제로 버전업 해야하는게 아닌 선택해서 사용할 수 있도록 변경 됩니다. 업데이트 하지 않아도 기존버전을 사용이 가능하고, 업데이트를 진행하면 업데이트 모듈로 자동으로 새로운 버전으로 업데이트 합니다. 이젠 간편하게 버전업을 지원하게 되었습니다. 소스는 계속 이곳에 업로드 됩니다.
 
-  * 기타 최적화
+현재 개발이 70% 진행 중이고 조속히 공개할 수 있도록 하겠습니다.
+```
+[샘플] <br>
+<a href="https://imgur.com/QuBN1HR"><img src="https://i.imgur.com/QuBN1HR.gif" title="source: imgur.com" /></a>
  
- <br/>
+<br/>
 
 ## 기능정의:
 
@@ -52,7 +52,8 @@
 <br/>
 
 ## 다운로드
-[>> 다운로드 페이지](https://github.com/kimyearho/WebtoonDownloadManager/releases/tag/0.3.5)
+[>> 0.3.5 다운로드 페이지](https://github.com/kimyearho/WebtoonDownloadManager/releases/tag/0.3.5)
+[>> 0.3 다운로드 페이지](https://github.com/kimyearho/WebtoonDownloadManager/releases/tag/0.3)
 
 <br/>
 
