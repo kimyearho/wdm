@@ -55,7 +55,7 @@ public class Main extends Application {
 						e.printStackTrace();
 					}
 				} else {
-					// 업데이트를 하지 않을 때.
+					// 업데이트를 하지 않을 때
 					run(primaryStage, current);
 				}
 			} else {

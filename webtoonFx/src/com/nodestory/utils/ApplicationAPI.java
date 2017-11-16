@@ -18,7 +18,7 @@ public class ApplicationAPI {
 		Map<String, String> resultMap = null;
 		try {
 			// url = new URL("Your Server Checks");
-			url = new URL("http://nodestory.com/api/v0.1/appVersion");
+			url = new URL("http://nodestory.com/api/v0.1/appVersionCheck");
 			connection = url.openConnection();
 			connection.addRequestProperty("Content-Type", "application/json");
 			connection.setDoOutput(true);
