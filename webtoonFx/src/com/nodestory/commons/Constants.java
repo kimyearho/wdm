@@ -16,6 +16,8 @@ public final class Constants {
 
 	}
 	
+	//
+	
 	public final class SystemMessage {
 		
 		public static final String PROPERTY_PATH = "c:\\wdmFx\\app.properties";
