@@ -1,6 +1,5 @@
 package com.nodestory.utils;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -9,31 +8,21 @@ import java.util.Map;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
-import org.json.simple.JSONObject;
 
 public class ApplicationAPI {
 
-	@SuppressWarnings("unchecked")
-	public Map<String, String> appCheck(String apiKey) {
+	public Map<String, String> appCheck() {
 		URL url = null;
 		URLConnection connection = null;
 		StringBuilder responseBody = new StringBuilder();
 		Map<String, String> resultMap = null;
 		try {
 			// url = new URL("Your Server Checks");
-			url = new URL("http://nodestory.com/api/v0.1/appVersionCheck");
+			url = new URL("http://nodestory.com/api/v0.1/appVersion");
 			connection = url.openConnection();
 			connection.addRequestProperty("Content-Type", "application/json");
 			connection.setDoOutput(true);
 			connection.setDoInput(true);
-
-			JSONObject jsonBody = new JSONObject();
-			jsonBody.put("apiKey", apiKey);
-
-			BufferedOutputStream bos = new BufferedOutputStream(connection.getOutputStream());
-			bos.write(jsonBody.toJSONString().getBytes());
-			bos.flush();
-			bos.close();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line = null;
