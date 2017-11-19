@@ -2,7 +2,7 @@
 > 최고의 퀄리티를 자랑하는 네이버 웹툰 다운로드 프로그램.
 
 
-![Imgur](https://i.imgur.com/haI0RoJ.png)
+![Imgur](https://i.imgur.com/nQjxhw1.png)
 
 <br/>
 
