@@ -38,6 +38,13 @@
   * 이슈(버그)는 상단에 Issues 메뉴에서 작성해주세요.
   * Git 활성화를 위해 많은 협조 부탁드립니다.
 
+## Follows
+
+![Imgur](https://i.imgur.com/KYwTpoh.png) <br/>
+
+상단의 Watch -> Watching 를 하시면 가입하신 이메일로 버전 업데이트 내역을 자동으로 받아볼 수 있습니다.
+
+
 <br/>
 
 ## 다운로드
